@@ -15,8 +15,22 @@ Test de 4 pasos que verifica:
 3. ✅ Navegar al menú → PamSTEM → ver primer video
 4. ✅ Cerrar navegador
 
-### 2. test-python.py
-Ejemplo básico de Playwright para aprender la estructura.
+### 2. test-google.py
+Test que verifica el funcionamiento de Google:
+1. ✅ Abrir Google en el navegador
+2. ✅ Verificar que el título contiene "Google"
+3. ✅ Cerrar navegador
+
+### 3. test-python.py
+Ejemplo básico de Playwright para aprender la estructura:
+1. ✅ Abrir example.com
+2. ✅ Mostrar el título de la página
+3. ✅ Cerrar navegador
+
+### 4. test-combinado.py
+Test que ejecuta múltiples tests en un solo navegador:
+1. ✅ Test de Google
+2. ✅ Test de PamSTEM (menú, QA Queen, PamSTEM)
 
 ## 🚀 Cómo ejecutar los tests
 
@@ -44,8 +58,10 @@ browser = p.chromium.launch(headless=True)
 
 ```
 playwright-python-report/
-├── test-web-pamstem.py    # Test principal de 4 pasos
+├── test-web-pamstem.py    # Test de 4 pasos para PamSTEM
+├── test-google.py         # Test de Google
 ├── test-python.py         # Ejemplo básico
+├── test-combinado.py      # Test combinado (Google + PamSTEM)
 └── README.md              # Este archivo
 ```
 
