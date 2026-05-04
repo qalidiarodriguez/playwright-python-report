@@ -32,6 +32,14 @@ Test que ejecuta múltiples tests en un solo navegador:
 1. ✅ Test de Google
 2. ✅ Test de PamSTEM (menú, QA Queen, PamSTEM)
 
+### 5. test_web_josh.py
+Test que verifica la página de portafolio de Joshua Garcia:
+1. ✅ Abrir la web del portafolio
+2. ✅ Verificar que el título contiene "Joshua Garcia" o "Portfolio"
+3. ✅ Cerrar navegador
+
+**URL**: https://joshuagarciia.myportfolio.com/work
+
 ## 🚀 Cómo ejecutar los tests
 
 ### Prerrequisitos
@@ -62,6 +70,9 @@ playwright-python-report/
 ├── test-google.py         # Test de Google
 ├── test-python.py         # Ejemplo básico
 ├── test-combinado.py      # Test combinado (Google + PamSTEM)
+├── test_web_josh.py       # Test de portafolio de Joshua Garcia
+├── requirements.txt       # Dependencias del proyecto
+├── .gitignore             # Archivos excluidos de Git
 └── README.md              # Este archivo
 ```
 
