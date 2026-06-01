@@ -73,8 +73,43 @@ playwright-python-report/
 ├── test_web_josh.py       # Test de portafolio de Joshua Garcia
 ├── requirements.txt       # Dependencias del proyecto
 ├── .gitignore             # Archivos excluidos de Git
+├── videos/                # Grabaciones de los tests en formato .webm
+├── screenshots/           # Capturas de pantalla de los pasos ejecutados
+│   ├── google/            # Capturas del test de Google
+│   └── pamstem/           # Capturas del test de PamSTEM
 └── README.md              # Este archivo
 ```
+
+## 🎥 Videos y Capturas de Pantalla
+
+### Test Google
+
+**Video grabado:** `videos/` (formato .webm)
+
+**Capturas ejecutadas:**
+- 📸 **Paso 1:** Google cargada
+  ![Google cargada](screenshots/google/01_pagina_cargada_20260601_172901.png)
+
+- 📸 **Paso 2:** Página completa
+  ![Google final](screenshots/google/02_antes_cerrar_20260601_172901.png)
+
+### Test PamSTEM (4 pasos)
+
+**Video grabado:** `videos/` (formato .webm)
+
+**Capturas ejecutadas:**
+
+- 📸 **Paso 1:** Web abierta
+  ![Web abierta](screenshots/pamstem/01_web_abierta_20260601_172935.png)
+
+- 📸 **Paso 2:** Menú hamburger abierto
+  ![Menú abierto](screenshots/pamstem/02_menu_abierto_20260601_172935.png)
+
+- 📸 **Paso 3:** Sección QA Queen con video
+  ![QA Queen](screenshots/pamstem/03_qa_queen_20260601_172935.png)
+
+- 📸 **Paso 4:** Sección PamSTEM con video
+  ![PamSTEM](screenshots/pamstem/04_pamstem_20260601_172935.png)
 
 ## 🔧 Tecnologías usadas
 

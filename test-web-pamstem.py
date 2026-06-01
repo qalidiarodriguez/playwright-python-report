@@ -6,15 +6,25 @@ Test para PamSTEM - 4 pasos
 """
 
 from playwright.sync_api import sync_playwright
+import os
+from datetime import datetime
 
 def test_pamstem_4_pasos():
     """Test de 4 pasos para PamSTEM"""
     
+    # Crear directorios para videos y screenshots
+    os.makedirs("./videos", exist_ok=True)
+    os.makedirs("./screenshots/pamstem", exist_ok=True)
+    
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    
     with sync_playwright() as p:
         # Paso 1: Abrir la web
+        print("\n🎬 Grabando video... (PamSTEM Test)")
         print("Paso 1: Abriendo la web...")
         browser = p.chromium.launch(headless=False)
-        page = browser.new_page()
+        context = browser.new_context(record_video_dir="./videos")
+        page = context.new_page()
         page.goto("https://qalidiarodriguez.github.io/lidipamelarodriguezvigueras.github.io/")
         print("✅ Web abierta")
         
@@ -22,12 +32,22 @@ def test_pamstem_4_pasos():
         page.wait_for_load_state("domcontentloaded")
         print(f"Título de la página: {page.title()}")
         
+        # Captura 1: Web abierta
+        screenshot_path_1 = f"./screenshots/pamstem/01_web_abierta_{timestamp}.png"
+        page.screenshot(path=screenshot_path_1)
+        print(f"📸 Captura 1 guardada: {screenshot_path_1}")
+        
         # IMPORTANTE: El menú está oculto (hamburger), hay que abrirlo primero
         print("\n→ Abriendo menú hamburger...")
         menu_btn = page.locator('#menuBtn')
         menu_btn.click()
         page.wait_for_timeout(500)
         print("✅ Menú abierto")
+        
+        # Captura 2: Menú abierto
+        screenshot_path_2 = f"./screenshots/pamstem/02_menu_abierto_{timestamp}.png"
+        page.screenshot(path=screenshot_path_2)
+        print(f"📸 Captura 2 guardada: {screenshot_path_2}")
         
         # Paso 2: Ir al botón QA Queen y ver el primer video
         print("\nPaso 2: Buscando botón QA Queen...")
@@ -39,6 +59,11 @@ def test_pamstem_4_pasos():
             
             # Esperar a que haga scroll hasta el video
             page.wait_for_timeout(1500)
+            
+            # Captura 3: QA Queen cargado
+            screenshot_path_3 = f"./screenshots/pamstem/03_qa_queen_{timestamp}.png"
+            page.screenshot(path=screenshot_path_3)
+            print(f"📸 Captura 3 guardada: {screenshot_path_3}")
             
             # Verificar que el video de QA Queen está presente
             video_qa = page.locator('iframe[src*="youtube.com/embed/ZptX-WqOCms"]').first
@@ -70,6 +95,11 @@ def test_pamstem_4_pasos():
             
             print(f"Título de la página PamSTEM: {page.title()}")
             
+            # Captura 4: PamSTEM cargado
+            screenshot_path_4 = f"./screenshots/pamstem/04_pamstem_{timestamp}.png"
+            page.screenshot(path=screenshot_path_4)
+            print(f"📸 Captura 4 guardada: {screenshot_path_4}")
+            
             # Verificar que el video de PamSTEM está presente
             video_pam = page.locator('iframe[src*="youtube.com/embed/vDoEyMuZ8Eo"]').first
             if video_pam.is_visible():
@@ -82,8 +112,10 @@ def test_pamstem_4_pasos():
         
         # Paso 4: Cerrar el navegador
         print("\nPaso 4: Cerrando navegador...")
+        context.close()
         browser.close()
         print("✅ Test completado")
+        print(f"🎥 Video guardado en: ./videos/")
 
 if __name__ == "__main__":
     test_pamstem_4_pasos()
