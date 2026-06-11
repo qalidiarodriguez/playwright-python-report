@@ -81,5 +81,4 @@ def test_combinado():
         browser.close()
         print("\nNavegador cerrado.")
 
-if __name__ == "__main__":
-    test_combinado()
+# Eliminado `if __name__ == "__main__"` para permitir descubrimiento por pytest.

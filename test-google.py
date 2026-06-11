@@ -44,5 +44,4 @@ def test_google():
         print("Navegador cerrado.")
         print(f"🎥 Video guardado en: ./videos/")
 
-if __name__ == "__main__":
-    test_google()        
+# Eliminado `if __name__ == "__main__"` para permitir descubrimiento por pytest.

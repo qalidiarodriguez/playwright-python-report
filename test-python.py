@@ -22,5 +22,4 @@ def test_ejemplo():
         # Cerrar navegador
         browser.close()
 
-if __name__ == "__main__":
-    test_ejemplo()
+# Eliminado `if __name__ == "__main__"` para permitir descubrimiento por pytest.

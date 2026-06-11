@@ -117,5 +117,4 @@ def test_pamstem_4_pasos():
         print("✅ Test completado")
         print(f"🎥 Video guardado en: ./videos/")
 
-if __name__ == "__main__":
-    test_pamstem_4_pasos()
+# Eliminado `if __name__ == "__main__"` para permitir descubrimiento por pytest.

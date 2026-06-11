@@ -142,3 +142,31 @@ MIT License - Feel free to use and learn from this project!
 ---
 
 ⭐️ Si este proyecto te ayuda, dale una estrella en GitHub
+
+## Mejoras aplicadas tras revisión técnica por un qa senior llamado Carlos
+
+- **Cambio de nomenclatura a snake_case:** todos los archivos de tests y scripts siguen la convención `snake_case`.
+- **Uso de fixtures con Pytest:** el fixture `page` está centralizado en `conftest.py` para setup/teardown reutilizables.
+- **Organización de tests dentro de la carpeta `tests/`:** todos los tests se movieron a `tests/` para separar código de test del código auxiliar.
+- **Eliminación de `if __name__ == "__main__"`:** los bloques de ejecución directa fueron removidos para favorecer el descubrimiento por `pytest`.
+- **Ignorar artefactos de pruebas en VCS:** `.gitignore` ahora incluye `test-results/`, `playwright-report/`, `screenshots/`, `videos/`.
+- **Alineación con buenas prácticas Playwright + Pytest:** estructura clara, uso de fixtures, y tests legibles para portafolio.
+
+## Guía para estudiantes
+
+Se añadió el archivo `GUIA_APRENDIZAJE_PLAYWRIGHT_PYTHON.md`, una guía orientada a principiantes que explica:
+
+- Qué es Playwright y qué es Pytest
+- Cómo ejecutar este proyecto paso a paso
+- Estructura del repositorio y propósito de cada elemento (`tests/`, `conftest.py`, `README.md`, `.gitignore`)
+- Buenas prácticas implementadas y por qué son importantes
+- Próximos pasos para aprender (POM, Data-driven, CI/CD, reportes, cross-browser)
+- Cómo usar IA (por ejemplo GitHub Copilot) para aprender y mejorar tests
+
+Puedes abrir la guía en el archivo `GUIA_APRENDIZAJE_PLAYWRIGHT_PYTHON.md`.
+
+Para ejecutar los tests nuevos:
+
+```bash
+pytest -q
+```
